@@ -6,7 +6,7 @@
 /*   By: crirodr2 <crirodr2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:25:20 by crirodr2          #+#    #+#             */
-/*   Updated: 2025/01/30 01:57:08 by crirodr2         ###   ########.fr       */
+/*   Updated: 2025/04/30 17:27:04 by crirodr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+// Milestone 1
+# include "./ft_printf/ft_printf.h"
+# include "./gnl/get_next_line.h"
 
 // Libc
 int		ft_isalpha(int c);

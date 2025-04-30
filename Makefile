@@ -54,19 +54,25 @@ SRCS_PRINTF :=	$(PRINTF_DIR)/ft_printf.c \
 				$(PRINTF_DIR)/ft_printf_parsing.c \
 				$(PRINTF_DIR)/ft_printf_to_str.c
 DEPS_PRINTF :=	libft.h \
-				$(PRINTF_DIR)/ft_printf.h \
 				$(PRINTF_DIR)/ft_printf_parsing.h \
 				$(PRINTF_DIR)/ft_printf_to_str.h
 OBJS_PRINTF :=	$(SRCS_PRINTF:%.c=$(OBJS_DIR)/%.o)
 
 
 GNL_DIR :=	gnl
-
-
+SRCS_GNL :=	$(GNL_DIR)/get_next_line.c \
+			$(GNL_DIR)/get_next_line_utils.c
+DEPS_GNL :=	libft.h \
+			$(GNL_DIR)/get_next_line_utils.h
+OBJS_GNL :=	$(SRCS_GNL:%.c=$(OBJS_DIR)/%.o)
 
 
 SRCS := $(SRCS_LIBFT) $(SRCS_PRINTF) $(SRCS_GNL)
 OBJS := $(OBJS_LIBFT) $(OBJS_PRINTF) $(OBJS_GNL)
+DEPS :=	libft.h \
+		$(PRINTF_DIR)/ft_printf.h \
+		$(GNL_DIR)/get_next_line.h \
+		$(DEPS_LIBFT) $(DEPS_PRINTF) $(DEPS_GNL)
 
 CC = cc
 CWARN = -Wall -Wextra -Werror
