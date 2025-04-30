@@ -6,7 +6,7 @@
 /*   By: crirodr2 <crirodr2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:14:28 by crirodr2          #+#    #+#             */
-/*   Updated: 2025/04/30 15:35:35 by crirodr2         ###   ########.fr       */
+/*   Updated: 2025/04/30 18:23:05 by crirodr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,13 @@ static int	conversion_printer(t_convspec cs, int *pchrs)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list		scions;
+	va_list		args;
 	t_convspec	cspec;
 	int			printed_chars;
 
 	if (!format)
 		return (-1);
-	va_start(scions, format);
+	va_start(args, format);
 	printed_chars = 0;
 	while (*format != '\0')
 	{
@@ -117,12 +117,12 @@ int	ft_printf(const char *format, ...)
 			printed_chars++;
 			continue ;
 		}
-		cspec = conversion_parser((char **)&(format), scions, &printed_chars);
+		cspec = conversion_parser((char **)&(format), args, &printed_chars);
 		if (cspec.type == '%')
 			continue ;
 		if (conversion_printer(cspec, &printed_chars))
 			break ;
 	}
-	va_end(scions);
+	va_end(args);
 	return (printed_chars);
 }
