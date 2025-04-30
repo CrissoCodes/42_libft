@@ -47,21 +47,14 @@ SRCS := ft_atoi.c \
 DEPS := libft.h
 OBJS_DIR := ./objs
 OBJS := $(SRCS:%.c=$(OBJS_DIR)/%.o)
-BASE_SRCS := $(filter-out %_bonus.c, $(SRCS))
-BASE_OBJS := $(BASE_SRCS:%.c=$(OBJS_DIR)/%.o)
-BONUS_SRCS := $(filter %_bonus.c, $(SRCS))
-BONUS_OBJS := $(BONUS_SRCS:%.c=$(OBJS_DIR)/%.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME) $(BASE_OBJS)
+all: $(NAME) $(OBJS)
 
-$(NAME): $(BASE_OBJS)
-	ar rcs $(NAME) $(BASE_OBJS)
-
-bonus: $(BONUS_OBJS) $(NAME)
-	ar rcs $(NAME) $(BONUS_OBJS)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 $(OBJS_DIR)/%.o: %.c $(DEPS) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
