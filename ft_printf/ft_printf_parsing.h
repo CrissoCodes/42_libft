@@ -23,6 +23,6 @@ typedef struct s_conversion_specification
 	void	*fill;
 }	t_convspec;
 
-t_convspec	conversion_parser(char **locus, va_list content, int *pchrs);
+t_convspec	conversion_parser(char **locus, va_list *content, int *pchrs);
 
 #endif

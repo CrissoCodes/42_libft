@@ -74,7 +74,7 @@ static int	get_prec(char **site_ptr)
 	return (prec);
 }
 
-void	*get_content(va_list content, t_convspec cs)
+void	*get_content(va_list *content, t_convspec cs)
 {
 	void	*ptr;
 
@@ -84,24 +84,24 @@ void	*get_content(va_list content, t_convspec cs)
 	{
 		ptr = ft_calloc(1, sizeof(int));
 		if (cs.type == 'c' || cs.type == 'i' || cs.type == 'd')
-			*((int *)ptr) = va_arg(content, int);
+			*((int *)ptr) = va_arg(*content, int);
 		else
-			*((unsigned int *)ptr) = va_arg(content, unsigned int);
+			*((unsigned int *)ptr) = va_arg(*content, unsigned int);
 	}
 	else if (cs.type == 'p')
 	{
 		ptr = ft_calloc(1, sizeof(unsigned long long));
-		*((unsigned long *)ptr) = va_arg(content, unsigned long);
+		*((unsigned long *)ptr) = va_arg(*content, unsigned long);
 	}
 	else if (cs.type == 's')
 	{
 		ptr = ft_calloc(1, sizeof(char *));
-		*((char **)ptr) = va_arg(content, char *);
+		*((char **)ptr) = va_arg(*content, char *);
 	}
 	return (ptr);
 }
 
-t_convspec	conversion_parser(char **locus, va_list content, int *pchrs)
+t_convspec	conversion_parser(char **locus, va_list *content, int *pchrs)
 {
 	t_convspec	cspec;
 
@@ -111,9 +111,9 @@ t_convspec	conversion_parser(char **locus, va_list content, int *pchrs)
 	cspec.type = **locus;
 	(*locus)++;
 	if (cspec.width == -1)
-		cspec.width = (int) va_arg(content, unsigned int);
+		cspec.width = (int) va_arg(*content, unsigned int);
 	if (cspec.prec == -1)
-		cspec.prec = (int) va_arg(content, unsigned int);
+		cspec.prec = (int) va_arg(*content, unsigned int);
 	cspec.fill = get_content(content, cspec);
 	if (cspec.type == '%')
 	{

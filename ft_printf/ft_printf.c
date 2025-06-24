@@ -119,7 +119,7 @@ int	ft_printf(const char *format, ...)
 			printed_chars++;
 			continue ;
 		}
-		cspec = conversion_parser((char **)&(format), scions, &printed_chars);
+		cspec = conversion_parser((char **)&(format), &scions, &printed_chars);
 		if (cspec.type == '%')
 			continue ;
 		if (conversion_printer(cspec, &printed_chars))
