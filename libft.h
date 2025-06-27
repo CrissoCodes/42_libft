@@ -13,8 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
 
 // Milestone 1
 # include "./ft_printf/ft_printf.h"

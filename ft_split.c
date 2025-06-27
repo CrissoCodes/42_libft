@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static size_t	word_count_c(char const *s, char c)
 {

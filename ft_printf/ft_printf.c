@@ -14,6 +14,8 @@
 #include "ft_printf_parsing.h"
 #include "ft_printf_to_str.h"
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 static void	ft_putchars_fd(int c, int n, int fd)
 {
