@@ -6,7 +6,7 @@
 /*   By: crirodr2 <crirodr2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:14:28 by crirodr2          #+#    #+#             */
-/*   Updated: 2025/04/30 18:23:05 by crirodr2         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:53:13 by crirodr2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	ft_printf(const char *format, ...)
 			printed_chars++;
 			continue ;
 		}
-		cspec = conversion_parser((char **)&(format), args, &printed_chars);
+		cspec = conversion_parser((char **)&(format), &args, &printed_chars);
 		if (cspec.type == '%')
 			continue ;
 		if (conversion_printer(cspec, &printed_chars))
